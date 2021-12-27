@@ -21,8 +21,8 @@ Al final ,se creo, una aplicación ADF Client que consume los servicios web que 
 **Resumen:**
 
 En este proyecto, hemos visto cómo crear servicios web desde dos perspectivas:
--De arriba hacia abajo.
--De abajo hacia arriba. 
+- De arriba hacia abajo.
+- De abajo hacia arriba. 
 
 En el enfoque de arriba hacia abajo, creó los servicios web desde cero en función de lo que quería hacer. 
 En las secciones ascendentes, creó servicios web basados en servicios existentes. 
