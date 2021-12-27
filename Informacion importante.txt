@@ -1,0 +1,5 @@
+El proyecto debe ser dejado en la ubicacion establecida en el tutorial.SI cambiamos el destino no nos deja avanzar.
+
+----------------------------------------------------------
+Proyecto desarrollado en Jdeveloper 12c
+----------------------------------------------------------
