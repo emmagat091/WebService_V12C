@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:tns="http://annotation/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://annotation/">
+  <xs:element name="addEmployeeToDept" type="tns:addEmployeeToDept"/>
+  <xs:element name="addEmployeeToDeptResponse" type="tns:addEmployeeToDeptResponse"/>
+  <xs:element name="getDeptInfo" type="tns:getDeptInfo"/>
+  <xs:element name="getDeptInfoResponse" type="tns:getDeptInfoResponse"/>
+  <xs:element name="getMyDepts" type="tns:getMyDepts"/>
+  <xs:element name="getMyDeptsResponse" type="tns:getMyDeptsResponse"/>
+  <xs:element name="setMyDepts" type="tns:setMyDepts"/>
+  <xs:element name="setMyDeptsResponse" type="tns:setMyDeptsResponse"/>
+  <xs:complexType name="addEmployeeToDept">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:emp" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="emp">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="salary" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addEmployeeToDeptResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMyDepts">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMyDeptsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:dept" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dept">
+    <xs:sequence>
+      <xs:element name="employees" type="tns:emp" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="location" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMyDepts">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:dept" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setMyDeptsResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getDeptInfo">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDeptInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:dept" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

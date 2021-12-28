@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="Dept_EmpPageDef"
+                Package="webclient.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.Integer" Name="getDeptInfo_arg0" IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="getDeptInfo.result" DataControl="MyCompanyDC" RangeSize="25"
+                    BeanClass="webclient.MyCompanyDC.getDeptInfo" id="getDeptInfoIterator"/>
+    <accessorIterator MasterBinding="getDeptInfoIterator" Binds="Return" RangeSize="25" DataControl="MyCompanyDC"
+                      BeanClass="webclient.MyCompanyDC.getDeptInfo.Return" id="ReturnIterator"/>
+    <accessorIterator MasterBinding="ReturnIterator" Binds="employees" RangeSize="25" DataControl="MyCompanyDC"
+                      BeanClass="webclient.MyCompanyDC.getDeptInfo.Return.employees" id="employeesIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getDeptInfo" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getDeptInfo"
+                  IsViewObjectMethod="false" DataControl="MyCompanyDC" InstanceName="data.MyCompanyDC"
+                  ReturnName="data.MyCompanyDC.methodResults.getDeptInfo_MyCompanyDC_getDeptInfo_result">
+      <NamedData NDName="arg0" NDType="java.lang.Integer" NDValue="${bindings.getDeptInfo_arg0}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="arg0">
+      <AttrNames>
+        <Item Value="getDeptInfo_arg0"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReturnIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReturnIterator" id="location">
+      <AttrNames>
+        <Item Value="location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReturnIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="employeesIterator" id="employees">
+      <nodeDefinition DefName="webclient.MyCompanyDC.getDeptInfo.Return.employees" Name="employees0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="name"/>
+          <Item Value="salary"/>
+          <Item Value="_ROWNUM___ATTR_"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
